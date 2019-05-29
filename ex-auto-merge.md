@@ -3,13 +3,13 @@ title: Auto Merge
 layout: page
 ---
 
-This exercise illustrates how git will automatiically merge two branches that have diverged, if the changed sections of code do not overlap.
+This exercise illustrates how git will automatically merge two branches that have diverged, if the changed sections of code do not overlap.
 
 ## Setup
 
 You can use the repository from the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise (or configure repositories on GitLab and locally as described in the first steps of that exercise).
 
-Or you can create a new, empty resposity.
+Or you can create a new, empty repository.
 
 ```terminal
 $ mkdir auto-merge
@@ -84,7 +84,7 @@ $ git checkout master
 Switched to branch 'master'
 ```
 
-Note that `lorem.txt` doesn't have the changes you just commited to the `auto` branch.
+Note that `lorem.txt` doesn't have the changes you just committed to the `auto` branch.
 
 Change `lorem.txt` to add a line at the end of the file.
 
@@ -158,4 +158,4 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 ## Summary
 
-This same basic process is at work whether you're merging branches from differnt repositories or the same repository. Git will auto merge if the changes on each branch are not too close together. To see what happens when the changes are too close to each other or are overlapping, continue to the [Merge Conflict]({{ "ex-merge-conflict" | relative_url }}) excersise.
+This same basic process is at work whether you're merging branches from different repositories or the same repository. Git will auto merge if the changes on each branch are not too close together. To see what happens when the changes are too close to each other or are overlapping, continue to the [Merge Conflict]({{ "ex-merge-conflict" | relative_url }}) exercise.
