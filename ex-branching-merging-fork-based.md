@@ -34,7 +34,7 @@ Fork the maintainer's repository with the GitLab interface. See the [How to fork
 
 ## BOTH: Clone your respective repository
 
-The maintainer should clone his/her repsoitory, and the contributor should clone the respitory from his/her fork.
+The maintainer should clone his/her repository, and the contributor should clone the repository from his/her fork.
 
 ```terminal
 $ git clone git@{{ site.gitlabhost }}:[username]/advanced.git
@@ -181,11 +181,11 @@ Branch 'add-greeting' set up to track remote branch 'add-greeting' from 'origin'
 
 Those lines in the output that begin with "remote: " are interesting. They are messages from the remote repository. GitLab has a feature that sets this message when you push a branch to your repository. In this case it is giving you a link to follow in order to start a Merge Request.
 
-*A note on terminology:* GitLab calls this a "Merge Request"; GitHub calls its version of this proces a "Pull Request". They are bascially the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to streamline the workflow.
+*A note on terminology:* GitLab calls this a "Merge Request"; GitHub calls its version of this process a "Pull Request". They are basically the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to streamline the workflow.
 
-Copy and paste that URL into your browser and follow the process to submit a pull request. You should make sure that you are requesting that this branch be merged into the the `master` branch on the maintainer's repository. If you followed the forking steps above, this should happen automatically because GitLab assumes that since you are a downstream contributor, you will want your changes merged upstream to the maintainer's repository. 
+Copy and paste that URL into your browser and follow the process to submit a pull request. You should make sure that you are requesting that this branch be merged into the the `master` branch on the maintainer's repository. If you followed the forking steps above, this should happen automatically because GitLab assumes that since you are a downstream contributor, you will want your changes merged upstream to the maintainer's repository.
 
-It is helpful to give the Merge Request a goot title and to add a description if more context or clarification is needed.
+It is helpful to give the Merge Request a good title and to add a description if more context or clarification is needed.
 
 Once you submit the form, you will be redirected to the newly created Merge Request.
 
@@ -240,7 +240,7 @@ You get the helpful URL again from the remote, but note that this time it says "
 
 ## BOTH: Take another look at the Merge Request page
 
-See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now relects the current state of `README.md` in the contributor's `add-greeting` branch.
+See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now reflects the current state of `README.md` in the contributor's `add-greeting` branch.
 
 ## MAINTAINER: Merge the request
 
@@ -302,4 +302,4 @@ That command will remove the local repository. There are ways to remove a remote
 
 Now that the contributor's `add-greeting` branch has been merged and deleted, we're back to a state, in terms of branches, that is the same as when we started.
 
-This may seem like a lot of work, but this workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asynchronously and on many projects at once. 
+This may seem like a lot of work, but this workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asynchronously and on many projects at once.

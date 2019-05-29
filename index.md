@@ -26,6 +26,7 @@ git version 2.20.1
 - Exercise: [Git Basics]({{ "ex-git-basics" | relative_url }})
 - Exercise: [Collaborative Branching and Merging]({{ "ex-branching-merging" | relative_url }})
   - Exercise [Fork-based Collaborative Branching and Merging]({{ "ex-branching-merging-fork-based" | relative_url }}) (optional)
+  - Exercise [Working With Protected Branches]({{ "ex-protected-branch" | relative url }}) (optional)
 - Advanced Merging
   - Exercise: [Auto Merge]({{ "ex-auto-merge" | relative_url }})
   - Exercise: [Merge Conflict]({{ "ex-merge-conflict" | relative_url }})

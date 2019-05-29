@@ -9,7 +9,7 @@ This exercise illustrates how git will help you handle merging two branches that
 
 You can use the repository from the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise (or configure repositories on GitLab and locally as described in the first steps of that exercise).
 
-Or you can create a new, empty resposity.
+Or you can create a new, empty repository.
 
 ```terminal
 $ mkdir ex-merge-conflict
@@ -174,7 +174,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 Stage `ipsum.txt` and check the status.
 
 ```terminal
-$ git add ipsum.txt 
+$ git add ipsum.txt
 $ git status
 On branch master
 All conflicts fixed but you are still merging.
