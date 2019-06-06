@@ -3,7 +3,7 @@ title: Protected Branch
 layout: page
 ---
 
-This exercise is set up for two people to do together. Find a partner, or proceed alone and play both roles. If working with a partner, you should both play the role of the submitter and then review your partner's merge request.  It is very similar to the [Collaborative Branching and Merging]({{ "ex-branching-merging" | relative_url }}) exercise, but the workflow is modified slightly when the master branch is protected. A protected master branch prevents anyone (including the owner/maintainer) from pushing directly to it from a local repository.  Instead, one must submit a merge request to be reviewed by a colleague.
+This exercise is set up for two people to do together. Find a partner, or proceed alone and play both roles. If working with a partner, you should both play the role of the submitter and then review your partner's merge request.  It is very similar to the [Collaborative Branching and Merging]({{ "ex-branching-merging" | relative_url }}) exercise, but the workflow is modified slightly when the master branch is protected. A protected master branch prevents anyone (including the owner/maintainer) from pushing directly to it from a local repository.  Instead, one must submit a merge request to be reviewed by a colleague.  After the merge request is reviewed, the reviewer can accept the request by clicking the merge button in GitLab or they can provide comments for the submitter to address and resubmit.
 
 The players:
   - **Submitter**
@@ -20,18 +20,19 @@ Create a project in GitLab
       - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups)
       - Set the Visibility Level to "Public"
 
-Invite the reviewer to your project.
-  - Settings &rarr; Members
-  - Add contributor's username under "Select members to invite"
-  - Give them the MAINTAINER role under "Choose a role permission" so you will both be allowed to merge
-
-Add a `README.md` file to the repository. You can do this with the GitLab interface (there's an `Add Readme` button) or by following the steps in the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise. Use the following content:
+Add a `README.md` file to the repository
+  - You can do this with the GitLab interface (there's an `Add Readme` button) or by following the steps in the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise. Use the following content:
 
 ```
 # Git Advanced Protected Branch Workflow
 
 Hello World
 ```
+
+Invite the reviewer to your project.
+  - Settings &rarr; Members
+  - Add contributor's username under "Select members to invite"
+  - Give them the MAINTAINER role under "Choose a role permission" so you will both be allowed to merge
 
 ## SUBMITTER: Protect your master branch
 
@@ -43,7 +44,7 @@ Modify protected branch settings.
 ## SUBMITTER: Clone the repository
 
 ```terminal
-$ git clone git@{{ site.gitlabhost }}:[submitter]/advanced-protected.git
+$ git clone git@{{ site.gitlabhost }}:[submitter_uniqname]/advanced-protected.git
 Cloning into 'advanced-protected'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
@@ -92,9 +93,9 @@ Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 312 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 remote: GitLab: You are not allowed to push code to protected branches on this project.
-To {{ site.gitlabhost }}:[submitter]/advanced-protected.git
+To {{ site.gitlabhost }}:[submitter_uniqname]/advanced-protected.git
  ! [remote rejected] master -> master (pre-receive hook declined)
-error: failed to push some refs to '{{ site.gitlabhost }}:[submitter]/advanced-protected.git'
+error: failed to push some refs to '{{ site.gitlabhost }}:[submitter_uniqname]/advanced-protected.git'
 ```
 
 Notice how the push command fails and says that you are not allowed to push code to protected branches. This is expected and means that you simply need to create a branch and then push the branch along with a merge request so that changes can be reviewed before they are added to master.
@@ -122,9 +123,9 @@ Writing objects: 100% (9/9), 780 bytes | 390.00 KiB/s, done.
 Total 9 (delta 1), reused 0 (delta 0)
 remote:
 remote: To create a merge request for add-greeting-for-reviewer, visit:
-remote:   {{ site.gitlaburl }}[submitter]/advanced-protected/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting-for-reviewer
+remote:   {{ site.gitlaburl }}[submitter_uniqname]/advanced-protected/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting-for-reviewer
 remote:
-To {{ site.gitlabhost }}:[submitter]/advanced-protected.git
+To {{ site.gitlabhost }}:[submitter_uniqname]/advanced-protected.git
  * [new branch]      add-greeting-for-reviewer -﹥ add-greeting-for-reviewer
 Branch 'add-greeting-for-reviewer' set up to track remote branch 'add-greeting-for-reviewer' from 'origin'.
 ```
@@ -133,7 +134,7 @@ Those lines in the output that begin with "remote: " are interesting. They are m
 
 *A note on terminology:* GitLab calls this a `Merge Request`; GitHub calls its version of this process a `Pull Request`. They are basically the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to streamline the workflow.
 
-Copy and paste that URL into your browser and follow the process to submit a Merge Request.
+Copy and paste the URL specified in the "To create a merge request..." section of the push command output into your browser and follow the process to submit a Merge Request.
 
 It is helpful to give the Merge Request a good title and to add a description if more context or clarification is needed.
 
@@ -145,7 +146,7 @@ Trying writing a few comments in the discussion section.
 
 ## REVIEWER: Review the Merge Request
 
-Go to the "Changes" section. You will see a diff of the contributor's changes. Make a comment in this diff by hovering over the last line in the diff, and clicking the little speech bubble that appears. Add the comment, "This looks good, but I prefer the greeting 'aloha'."
+Go to the "Changes" section. You will see a diff of the contributor's changes. Make a comment in this diff by hovering over the last line in the diff, and clicking the little speech bubble that appears. Add the comment, "This looks good, but I prefer the greeting 'howdy'."
 
 ## SUBMITTER: Respond to the review and make the requested change
 
@@ -159,7 +160,7 @@ Edit the `README.md` file in your local repository so that it looks like this:
 # Git Advanced Protected Branch Workflow
 
 Hello World
-Aloha [Reviewer]
+Howdy [Reviewer]
 ```
 
 Commit the change to the `add-greeting-for-reviewer` branch, and push. (You should still have `add-greeting-for-reviewer` checked out locally, so you shouldn't have to make any changes before running these commands.)
@@ -177,9 +178,9 @@ Writing objects: 100% (3/3), 315 bytes | 315.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 remote:
 remote: View merge request for add-greeting-for-reviewer:
-remote:   {{ site.gitlaburl }}[submitter]/advanced-protected/merge_requests/1
+remote:   {{ site.gitlaburl }}[submitter_uniqname]/advanced-protected/merge_requests/1
 remote:
-To {{ site.gitlabhost }}:[submitter]/advanced-protected.git
+To {{ site.gitlabhost }}:[submitter_uniqname]/advanced-protected.git
    355165e..c07ffa7  add-greeting-for-reviewer -﹥ add-greeting-for-reviewer
 ```
 
@@ -187,7 +188,7 @@ You get the helpful URL again from the remote, but note that this time it says "
 
 ## BOTH: Take another look at the Merge Request page
 
-See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now reflects the current state of `README.md` in the submitter's `add-greeting-for-reviewer` branch.
+See how just pushing to the branch updated the Merge Request? GitLab sees the changes, and notes them in the discussion and the diff now reflects the current state of `README.md` in the submitter's `add-greeting-for-reviewer` branch.
 
 ## REVIEWER: Merge the request
 
@@ -204,7 +205,7 @@ $ git pull
 remote: Counting objects: 1, done.
 remote: Total 1 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (1/1), done.
-From {{ site.gitlabhost }}:[submitter]/advanced-protected
+From {{ site.gitlabhost }}:[submitter_uniqname]/advanced-protected
    ebc61d8..2cfabd4  master     -﹥ origin/master
 Updating ebc61d8..2cfabd4
 Fast-forward
